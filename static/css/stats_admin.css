@@ -74,3 +74,49 @@ th { text-align: left; padding: 12px; color: #888; font-size: 12px; border-botto
 td { padding: 12px; border-bottom: 1px solid rgba(0,0,0,0.05); font-size: 14px; }
 
 #searchLog { padding: 10px 15px; border-radius: 12px; border: none; box-shadow: inset 3px 3px 6px var(--shadow), inset -3px -3px 6px #fff; background: var(--bg); width: 300px; }
+
+/* ============================================= */
+/* AJOUTS UNIQUEMENT (POUR MOBILE)               */
+/* ============================================= */
+@media (max-width: 768px) {
+    body, html { 
+        overflow: auto !important; 
+        height: auto !important; 
+    }
+    .admin-wrapper { 
+        flex-direction: column !important; 
+    }
+    .sidebar-admin { 
+        width: 100% !important; 
+        height: auto !important; 
+        flex-direction: row !important; 
+        padding: 10px 0 !important; 
+        position: sticky !important;
+        top: 0;
+    }
+    .admin-logo, .nav-separator { 
+        display: none !important; 
+    }
+    .sidebar-admin nav { 
+        flex-direction: row !important; 
+        gap: 15px !important; 
+    }
+    .sidebar-admin nav a { 
+        margin-bottom: 0 !important; 
+    }
+    .grid-stats, .middle-grid { 
+        grid-template-columns: 1fr !important; 
+        height: auto !important; 
+    }
+    .canvas-holder { 
+        height: 250px !important; 
+    }
+    .main-header { 
+        flex-direction: column !important; 
+        align-items: flex-start !important; 
+        gap: 10px !important; 
+    }
+    #searchLog { 
+        width: 100% !important; 
+    }
+}

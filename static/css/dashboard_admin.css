@@ -45,3 +45,38 @@ table { width:100%; border-collapse:collapse; }
 td, th { padding:12px; text-align:left; border-bottom:1px solid rgba(0,0,0,0.05); font-size: 14px; }
 th { color: #888; font-weight: 600; position: sticky; top: 0; background: var(--bg); }
 .alert-box { background:#f8d7da; color:#721c24; padding:10px 20px; border-radius:15px; font-weight:bold; }
+
+/* ============================================= */
+/* AJOUT POUR MOBILE (AJUSTEMENTS UNIQUEMENT)   */
+/* ============================================= */
+@media (max-width: 768px) {
+    body, html { 
+        overflow: auto !important; /* Permet de défiler sur mobile */
+        height: auto !important; 
+    } 
+    .admin-wrapper { 
+        flex-direction: column !important; /* Empile la barre sur le contenu */
+        height: auto !important; 
+    }
+    .sidebar-admin { 
+        width: 100% !important; 
+        height: auto !important; 
+        flex-direction: row !important; 
+        padding: 10px 0 !important;
+        position: sticky !important;
+        top: 0;
+    }
+    .sidebar-admin nav { 
+        flex-direction: row !important; 
+        justify-content: center !important;
+        width: 100% !important;
+    }
+    .admin-logo, .nav-separator { display: none !important; } /* Gagne de la place */
+    
+    .stats-top-grid { 
+        grid-template-columns: 1fr !important; /* Une seule carte par ligne */
+    }
+    .admin-main { padding: 10px !important; }
+    input { width: 100% !important; }
+    .table-tools { flex-direction: column !important; gap: 10px !important; }
+}
