@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surveillance Master - Admin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="static/js/mqtt_max.js"></script> 
+<script src="static/js/stats_admin.js"></script> 
+    <link rel="stylesheet" href="static/css/stats_admin.css">
+</head>
+<body>
+    <div class="admin-wrapper">
+        <aside class="sidebar-admin">
+            <div class="logo-container">
+                <img src="static/img/LOGO_1.png" class="admin-logo" alt="Logo">
+            </div>
+            <nav>
+                <a href="dashboard_admin.html" title="Retour au Dashboard">
+                    <i class="fas fa-th-large"></i>
+                </a>
+                <a href="#" class="active" title="Statistiques & IA">
+                    <i class="fas fa-brain"></i>
+                </a>
+                <div class="nav-separator"></div>
+                <a href="login.html" title="Déconnexion">
+                    <i class="fas fa-power-off"></i>
+                </a>
+            </nav>
+        </aside>
+
+        <main class="stats-container">
+            <header class="main-header">
+                <div class="titles">
+                    <h1>Analyse de Distribution</h1>
+                    <p class="subtitle">Intelligence Artificielle & Flux Réels</p>
+                </div>
+                
+                <div class="ai-card-master neumorphic">
+                    <h3><i class="fas fa-robot"></i> Analyse Gemini IA</h3>
+                    <div id="aiAdviceBox">
+                        <div class="ai-waiting">En attente de données du terrain...</div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="grid-stats">
+                <div class="card neumorphic chart-container">
+                    <h3>Progression du Volume Total</h3>
+                    <div class="canvas-wrapper">
+                        <canvas id="evolutionChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="card neumorphic">
+                    <h3>Performance par Employé</h3>
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Employé</th>
+                                    <th>Livraisons</th>
+                                    <th>Total (L)</th>
+                                </tr>
+                            </thead>
+                            <tbody id="dailyPerformanceBody">
+                                </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card neumorphic master-logs">
+                <div class="log-header">
+                    <h3>Historique des Reçus (Flux Direct)</h3>
+                    <div class="prediction-badge">
+                        Prédiction 24h : <span id="predictVol">0</span> L
+                    </div>
+                </div>
+                <div class="scroll">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Livreur</th>
+                                <th>Client</th>
+                                <th>Volume</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="masterLogBody">
+                            </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="static/js/stats_admin.js"></script>
+</body>
+</html>

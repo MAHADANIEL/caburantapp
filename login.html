@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - APP GROUP2</title>
+    <!-- Google Fonts Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="static/css/login.css">
+</head>
+<body>
+    <div class="login-container">
+        <!-- Logo de la société -->
+        <div class="logo-wrapper">
+            <img src="static/img/LOGO_1.png" alt="Logo Société" class="logo">
+        </div>
+
+        <!-- Formulaire -->
+        <form id="loginForm" class="login-form">
+            <h2>Connexion</h2>
+
+            <!-- Champ Nom -->
+            <div class="input-group">
+                <label for="username">Nom</label>
+                <input type="text" id="username" placeholder="Votre nom" required>
+            </div>
+
+            <!-- Champ Code -->
+            <div class="input-group">
+                <label for="code">Code</label>
+                <input type="password" id="code" placeholder="••••••••" required>
+            </div>
+
+            <!-- Rôle -->
+            <div class="input-group role-group">
+                <label>Rôle</label>
+                <div>
+                    <input type="radio" id="employee" name="role" value="employee" checked>
+                    <label for="employee">Employé</label>
+
+                    <input type="radio" id="admin" name="role" value="admin">
+                    <label for="admin">Administrateur</label>
+                </div>
+            </div>
+
+            <button type="submit" class="btn-login">Se connecter</button>
+
+            <p id="errorMsg" class="error-msg"></p>
+        </form>
+    </div>
+
+    <script src="static/js/login.js"></script>
+</body>
+</html>

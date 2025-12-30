@@ -1,0 +1,76 @@
+:root { 
+    --bg: #e0e5ec; 
+    --shadow: #a3b1c6; 
+    --accent: #8e44ad; /* Violet pour l'IA */
+    --blue: #1E90FF; 
+}
+
+body, html { margin:0; height:100vh; overflow:hidden; font-family:'Poppins', sans-serif; background:var(--bg); }
+
+.admin-wrapper { display:flex; height:100vh; }
+
+/* SIDEBAR UNIFIÉE (Copie conforme) */
+.sidebar-admin {
+    width: 80px; background: var(--bg); box-shadow: 4px 0 10px var(--shadow);
+    display: flex; flex-direction: column; align-items: center; padding: 20px 0; z-index: 100;
+}
+.admin-logo { width: 50px; margin-bottom: 40px; filter: drop-shadow(2px 2px 4px var(--shadow)); }
+.sidebar-admin nav { display: flex; flex-direction: column; gap: 20px; }
+.sidebar-admin nav a {
+    width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;
+    border-radius: 15px; color: #888; text-decoration: none; font-size: 20px; transition: all 0.3s ease;
+    background: var(--bg); box-shadow: 4px 4px 8px var(--shadow), -4px -4px 8px #fff;
+}
+.sidebar-admin nav a:hover { color: var(--accent); transform: translateY(-2px); }
+.sidebar-admin nav a.active { color: var(--accent); box-shadow: inset 3px 3px 6px var(--shadow), inset -3px -3px 6px #fff; }
+.nav-separator { height: 2px; width: 30px; background: var(--shadow); margin: 10px 0; border-radius: 2px; }
+
+/* CONTENU STATS & IA */
+.stats-container { flex:1; padding:25px; display:flex; flex-direction:column; gap:20px; overflow-y: auto; }
+.ai-card-master { border-left: 5px solid var(--accent); }
+#aiAdviceBox { min-height: 60px; display: flex; align-items: center; font-style: italic; color: #2c3e50; }
+
+.grid-stats { display: grid; grid-template-columns: 1.5fr 1fr; gap: 20px; height: 300px; }
+.card { background:var(--bg); border-radius:20px; box-shadow:8px 8px 16px var(--shadow), -8px -8px 16px #fff; padding:20px; }
+
+.master-logs { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+.scroll { flex: 1; overflow-y: auto; margin-top: 10px; }
+table { width:100%; border-collapse:collapse; }
+td, th { padding:12px; text-align:left; border-bottom:1px solid rgba(0,0,0,0.05); font-size: 14px; }
+
+.prediction-badge { 
+    background: #fff; padding: 5px 15px; border-radius: 20px; 
+    font-size: 13px; font-weight: 600; color: var(--accent);
+    box-shadow: inset 2px 2px 5px var(--shadow);
+}
+:root { --bg: #e0e5ec; --shadow: #a3b1c6; --accent: #1E90FF; --ai-purple: #8e44ad; }
+body, html { margin: 0; height: 100vh; overflow: hidden; font-family: 'Poppins', sans-serif; background: var(--bg); color: #444; }
+
+.admin-wrapper { display: flex; height: 100vh; }
+.sidebar-admin { width: 75px; display: flex; flex-direction: column; align-items: center; padding: 25px 0; box-shadow: 2px 0 15px var(--shadow); z-index: 10; }
+.admin-logo { width: 45px; margin-bottom: 50px; filter: drop-shadow(2px 2px 4px var(--shadow)); }
+.sidebar-admin nav a { color: #888; font-size: 24px; margin-bottom: 35px; transition: 0.3s; }
+.sidebar-admin nav a.active { color: var(--accent); }
+
+.stats-container { flex: 1; padding: 30px; display: flex; flex-direction: column; gap: 20px; overflow-y: auto; }
+.main-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 10px; }
+.header-titles h1 { margin: 0; font-size: 24px; font-weight: 600; }
+.subtitle { margin: 0; color: #888; font-size: 14px; }
+
+.card { background: var(--bg); border-radius: 25px; padding: 20px; box-shadow: 9px 9px 18px var(--shadow), -9px -9px 18px #ffffff; }
+
+/* AI Card Special Design */
+.ai-card-master { border-left: 6px solid var(--ai-purple); background: linear-gradient(145deg, #e6ebf2, #ced4da); }
+.ai-header { display: flex; align-items: center; gap: 15px; color: var(--ai-purple); margin-bottom: 15px; }
+.ai-content { font-style: italic; font-size: 15px; line-height: 1.6; color: #2c3e50; min-height: 50px; }
+.ai-loader { display: flex; align-items: center; gap: 10px; color: #888; }
+
+.middle-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 25px; height: 320px; }
+.canvas-holder { height: 230px; width: 100%; }
+
+.scroll-y { overflow-y: auto; max-height: 350px; margin-top: 15px; }
+table { width: 100%; border-collapse: collapse; }
+th { text-align: left; padding: 12px; color: #888; font-size: 12px; border-bottom: 2px solid var(--shadow); position: sticky; top: 0; background: var(--bg); }
+td { padding: 12px; border-bottom: 1px solid rgba(0,0,0,0.05); font-size: 14px; }
+
+#searchLog { padding: 10px 15px; border-radius: 12px; border: none; box-shadow: inset 3px 3px 6px var(--shadow), inset -3px -3px 6px #fff; background: var(--bg); width: 300px; }

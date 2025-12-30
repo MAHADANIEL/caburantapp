@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Employé - Carburant App</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script src="static/js/mqtt.min.js"></script>
+<script src="static/js/dashboard_employee.js"></script>
+
+    <link rel="stylesheet" href="static/css/dashboard_employee.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="static/img/LOGO_1.png" alt="Logo" class="mini-logo">
+                <h3>Carburant<span>App</span></h3>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="nav-item active">
+                        <a href="#"><i class="fas fa-gas-pump"></i> Distribution</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" onclick="goToStats()"><i class="fas fa-chart-line"></i> Mes Stats</a>
+                    </li>
+                </ul>
+                <div class="sidebar-footer">
+                    <a href="login.html" class="logout-link"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
+                </div>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="welcome-text">
+                    <p>Bonjour,</p>
+                    <h1 id="usernameDisplay">--</h1>
+                </div>
+                <div class="status-indicator" id="mqttStatusBadge">
+                    <span class="dot"></span> ESP8266 Déconnecté
+                </div>
+            </header>
+
+            <div class="content-body">
+                <div class="stats-grid">
+                    <div class="card neumorphic mini-card">
+                        <span class="label">Stock Initial</span>
+                        <h2 id="initialStock">-- L</h2>
+                    </div>
+                    <div class="card neumorphic mini-card">
+                        <span class="label">Distribué</span>
+                        <h2 id="totalDispensed" class="accent-text">-- L</h2>
+                    </div>
+                </div>
+
+                <div class="card neumorphic gauge-card">
+                    <h3>Niveau de la Citerne</h3>
+                    <div class="level-bar-container">
+                        <div id="fuelLevelBar" class="level-bar"></div>
+                    </div>
+                    <div class="gauge-details">
+                        <p><span id="currentStockText">--</span> L restants</p>
+                    </div>
+                </div>
+
+                <div class="card neumorphic form-card">
+                    <h3>Nouvelle Distribution</h3>
+                    <div class="input-field">
+                        <i class="fas fa-building"></i>
+                        <input type="text" id="clientCompany" placeholder="Société Cliente">
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-fill-drip"></i>
+                        <input type="number" id="litersToDispense" placeholder="Litres à distribuer">
+                    </div>
+                    <button id="startDispenseBtn" class="primary-btn">Démarrer la livraison</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div id="receiptModal" class="modal">
+        <div class="modal-content neumorphic">
+            <div class="receipt-header">
+                <h2>LIVRAISON RÉUSSIE</h2>
+                <p>Récapitulatif de l'opération</p>
+            </div>
+            <div id="printableReceipt" class="receipt-details">
+                <div class="detail-item"><span>Livreur:</span> <strong id="r_employee"></strong></div>
+                <div class="detail-item"><span>Client:</span> <strong id="r_client"></strong></div>
+                <div class="detail-item"><span>Volume:</span> <strong id="r_liters"></strong> L</div>
+                <div class="detail-item"><span>Date:</span> <strong id="r_date"></strong></div>
+            </div>
+            <div class="modal-actions">
+                <button onclick="exportReceiptPDF()" class="btn-pdf">Exporter PDF</button>
+                <button onclick="closeModal()" class="btn-close">Fermer</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="static/js/dashboard_employee.js"></script>
+</body>
+</html>

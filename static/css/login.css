@@ -1,0 +1,234 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+/* ================================================= */
+/* 1. FLUIDITÉ DE FOND (Gradient Animé) */
+/* ================================================= */
+
+/* Définition des nuances de couleurs très douces */
+:root {
+    --color-1: #e0e7ee; /* Gris très clair, presque blanc */
+    --color-2: #f0f4f7; /* Blanc cassé, plus chaud */
+    --color-3: #c2d4e6; /* Bleu très pâle */
+}
+
+body {
+    margin: 0;
+    font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Cache le débordement de l'arrière-plan géant */
+    
+    /* Le dégradé doit être grand (400%) pour que l'animation soit fluide */
+    background: linear-gradient(135deg, var(--color-1) 0%, var(--color-2) 25%, var(--color-3) 50%, var(--color-1) 75%, var(--color-2) 100%);
+    background-size: 400% 400%;
+    
+    /* Appliquer l'animation de fond */
+    animation: backgroundShift 30s ease infinite alternate; /* 30 secondes pour un mouvement très lent */
+    
+    position: relative;
+}
+
+/* Définition de l'animation de fond fluide */
+@keyframes backgroundShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+/* ================================================= */
+/* 2. ANIMATIONS D'ENTRÉE (Cascade de Droite à Gauche) */
+/* ================================================= */
+
+/* Animation principale de la carte (glissement de droite à gauche) */
+@keyframes slideInFromRightCard {
+    0% {
+        opacity: 0;
+        transform: translateX(150px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Animation des éléments internes (glissement de droite à gauche) */
+@keyframes slideInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* ================================================= */
+/* 3. CONTENEUR LOGIN (CARTE NEUMORPHIC) */
+/* ================================================= */
+
+.login-container {
+    width: 380px;
+    background: #f0f0f3;
+    border-radius: 30px;
+    padding: 40px 35px;
+    /* Neumorphism : ombres pour faire flotter la carte */
+    box-shadow: 8px 8px 15px rgba(0,0,0,0.1), -8px -8px 15px rgba(255,255,255,0.7);
+    
+    /* Application de l'animation de la carte */
+    opacity: 0;
+    animation: slideInFromRightCard 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; 
+    
+    position: relative;
+    z-index: 1;
+}
+
+/* ================================================= */
+/* 4. CASCADE ET SÉQUENCE DES ÉLÉMENTS INTERNES */
+/* ================================================= */
+
+/* Appliquer l'animation de glissement à tous les éléments internes */
+.logo-wrapper, .login-form h2, .input-group, .role-group, .btn-login, .error-msg {
+    opacity: 0; 
+    animation: slideInRight 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+/* Définir les délais pour l'effet de cascade (le "Wahou" séquencé) */
+.logo-wrapper {
+    animation-delay: 0.4s;
+}
+
+.login-form h2 {
+    animation-delay: 0.6s;
+}
+
+.input-group:nth-of-type(1) { /* Champ Nom */
+    animation-delay: 0.8s;
+}
+
+/* Note: Si l'élément Role se trouve dans un second .input-group */
+.input-group:nth-of-type(2) { 
+    animation-delay: 1.0s;
+}
+
+/* Si vous avez un div ou un autre conteneur pour les radios de rôle */
+.role-group {
+    animation-delay: 1.2s;
+}
+
+.btn-login {
+    animation-delay: 1.4s; /* Le bouton apparaît en dernier */
+}
+
+/* ================================================= */
+/* 5. STYLES FIXES (Conservés et Améliorés) */
+/* ================================================= */
+
+/* Logo */
+.logo-wrapper {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.logo {
+    width: 120px;
+    height: auto;
+    border-radius: 20px;
+    padding: 10px;
+    background: rgba(255,255,255,0.5);
+}
+
+/* Formulaire */
+.login-form h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+    font-weight: 600;
+    font-size: 26px;
+}
+
+/* Champs de saisie */
+.input-group {
+    margin-bottom: 25px;
+}
+
+.input-group label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: #555;
+}
+
+.input-group input[type="text"],
+.input-group input[type="password"] {
+    width: 100%;
+    padding: 14px 15px;
+    border: none;
+    border-bottom: 2px solid #c1c1c1;
+    border-radius: 12px 12px 0 0;
+    outline: none;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    background: #f0f0f3;
+    transition: 0.3s all;
+    /* Neumorphism inset pour l'effet d'enfoncement */
+    box-shadow: inset 5px 5px 10px rgba(0,0,0,0.05), inset -5px -5px 10px rgba(255,255,255,0.7);
+}
+
+.input-group input:focus {
+    border-bottom: 2px solid #1E90FF; /* accent bleu */
+    box-shadow: inset 5px 5px 10px rgba(0,0,0,0.08), inset -5px -5px 10px rgba(255,255,255,0.8);
+}
+
+/* Rôle – radio buttons */
+.role-group div {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 8px;
+    font-weight: 500;
+}
+
+.role-group input[type="radio"] {
+    accent-color: #1E90FF;
+}
+
+/* Bouton Se connecter */
+.btn-login {
+    width: 100%;
+    padding: 15px;
+    margin-top: 10px;
+    background: #1E90FF;
+    color: #fff;
+    border: none;
+    border-radius: 15px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.1), -5px -5px 15px rgba(255,255,255,0.3);
+    transition: all 0.3s ease;
+}
+
+/* Hover plus chic */
+.btn-login:hover {
+    background: #1579d5; /* Un bleu légèrement plus foncé pour rester cohérent */
+    box-shadow: 4px 4px 12px rgba(0,0,0,0.15), -4px -4px 12px rgba(255,255,255,0.35);
+}
+
+.btn-login:active {
+    transform: translateY(2px);
+}
+
+/* Message d'erreur */
+.error-msg {
+    color: red;
+    text-align: center;
+    margin-top: 10px;
+    height: 20px;
+    font-family: 'Poppins', sans-serif;
+}

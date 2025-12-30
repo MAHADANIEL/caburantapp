@@ -1,0 +1,47 @@
+:root { 
+    --bg: #e0e5ec; 
+    --shadow: #a3b1c6; 
+    --accent: #e74c3c; 
+    --blue: #1E90FF; 
+}
+
+body, html { margin:0; height:100vh; overflow:hidden; font-family:'Poppins', sans-serif; background:var(--bg); }
+
+.admin-wrapper { display:flex; height:100vh; }
+
+/* SIDEBAR UNIFIÉE */
+.sidebar-admin {
+    width: 80px;
+    background: var(--bg);
+    box-shadow: 4px 0 10px var(--shadow);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+    z-index: 100;
+}
+.admin-logo { width: 50px; margin-bottom: 40px; filter: drop-shadow(2px 2px 4px var(--shadow)); }
+.sidebar-admin nav { display: flex; flex-direction: column; gap: 20px; }
+.sidebar-admin nav a {
+    width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;
+    border-radius: 15px; color: #888; text-decoration: none; font-size: 20px; transition: all 0.3s ease;
+    background: var(--bg); box-shadow: 4px 4px 8px var(--shadow), -4px -4px 8px #fff;
+}
+.sidebar-admin nav a:hover { color: var(--blue); transform: translateY(-2px); }
+.sidebar-admin nav a.active { color: var(--blue); box-shadow: inset 3px 3px 6px var(--shadow), inset -3px -3px 6px #fff; }
+.nav-separator { height: 2px; width: 30px; background: var(--shadow); margin: 10px 0; border-radius: 2px; }
+
+/* CONTENU DASHBOARD */
+.admin-main { flex:1; padding:25px; display:flex; flex-direction:column; gap:20px; overflow-y: auto; }
+.stats-top-grid { display:grid; grid-template-columns: repeat(3, 1fr); gap:20px; }
+.card { background:var(--bg); border-radius:20px; box-shadow:8px 8px 16px var(--shadow), -8px -8px 16px #fff; padding:20px; }
+.accent { color: var(--accent); }
+.live-monitor { height:250px; }
+.logs-admin { flex:1; display:flex; flex-direction:column; overflow:hidden; min-height: 300px; }
+.table-tools { display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; }
+input { padding:10px; border-radius:12px; border:none; box-shadow: inset 2px 2px 5px var(--shadow); background:var(--bg); width:280px; outline: none; }
+.table-scroll { flex:1; overflow-y:auto; margin-top: 10px; }
+table { width:100%; border-collapse:collapse; }
+td, th { padding:12px; text-align:left; border-bottom:1px solid rgba(0,0,0,0.05); font-size: 14px; }
+th { color: #888; font-weight: 600; position: sticky; top: 0; background: var(--bg); }
+.alert-box { background:#f8d7da; color:#721c24; padding:10px 20px; border-radius:15px; font-weight:bold; }

@@ -1,0 +1,14 @@
+:root { --bg: #e0e5ec; --shadow: #a3b1c6; --accent: #1E90FF; }
+body, html { margin:0; height:100vh; overflow:hidden; font-family:'Poppins', sans-serif; background:var(--bg); }
+.app-wrapper { display:flex; height:100vh; }
+.compact-nav { width:70px; display:flex; flex-direction:column; align-items:center; padding:20px 0; box-shadow:2px 0 10px var(--shadow); }
+.nav-logo { width:45px; margin-bottom:40px; }
+.data-viewport { flex:1; padding:25px; display:flex; flex-direction:column; gap:20px; }
+.neumorphic { background:var(--bg); border-radius:20px; box-shadow:8px 8px 16px var(--shadow), -8px -8px 16px #fff; padding:20px; }
+.chart-box { height:35%; }
+.history-box { flex:1; overflow:hidden; display:flex; flex-direction:column; }
+.table-scroll { flex:1; overflow-y:auto; }
+table { width:100%; border-collapse:collapse; }
+th { text-align:left; padding:12px; color:#888; font-size:12px; position:sticky; top:0; background:var(--bg); }
+td { padding:12px; border-bottom:1px solid rgba(0,0,0,0.05); font-size:14px; }
+.btn-pdf { background:var(--accent); color:white; border:none; padding:8px 12px; border-radius:8px; cursor:pointer; font-weight:600; }
