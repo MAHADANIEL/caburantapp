@@ -143,3 +143,8 @@ function filterTable() {
         tr[i].style.display = tr[i].innerText.toUpperCase().includes(input) ? "" : "none";
     }
 }
+
+// --- AJOUT : FONCTION DE DÉCONNEXION ---
+function logout() {
+    window.location.href = "index.html";
+}

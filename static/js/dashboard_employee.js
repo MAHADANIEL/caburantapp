@@ -151,3 +151,8 @@ function exportReceiptPDF() {
     };
     html2pdf().set(opt).from(element).save();
 }
+
+// --- AJOUT : FONCTION DE DÉCONNEXION ---
+function logout() {
+    window.location.href = "index.html";
+}
